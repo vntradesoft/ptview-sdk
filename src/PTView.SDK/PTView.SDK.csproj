@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>PTView.SDK</PackageId>
+    <!-- PTView.SDK uses independent versioning (<SdkApiVersion> in Directory.Build.props) so app hotfixes do not force SDK version bumps -->
+    <VersionPrefix Condition="'$(SdkApiVersion)' != ''">$(SdkApiVersion)</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Title>PTView Indicator &amp; Plugin SDK</Title>
+    <Description>Zero-dependency .NET 10 SDK for building custom technical indicators and out-of-process plugins for PTView Trading Workstation.</Description>
+    <PackageTags>ptview;trading;charting;indicators;technical-analysis;crypto;sdk;plugins</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/vntradesoft/ptview-sdk</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://vntradesoft.github.io/ptview-docs</PackageProjectUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" Condition="Exists('README.md')" />
+    <None Include="README.vi.md" Pack="true" PackagePath="\" Condition="Exists('README.vi.md')" />
+  </ItemGroup>
+</Project>
